@@ -1,7 +1,10 @@
-🛰️ Shadow OT Security Lab — Defense in Depth Implementation
+
+<img width="1727" height="797" alt="Screenshot 2025-11-03 130616" src="https://github.com/user-attachments/assets/11f66f92-a939-4fc7-9d04-b09503fd6163" />
+
+🛰️ Shadow Security Lab — Defense in Depth Implementation for practicing
 🔒 Overview
 
-The Shadow OT Security Lab demonstrates a multi-zone, defense-in-depth network architecture integrating:
+The Shadow Security Lab demonstrates a multi-zone, defense-in-depth network architecture integrating:
 
 Active Directory domain infrastructure
 
@@ -13,7 +16,7 @@ Acronis offline backup management
 
 Advanced GPO hardening and endpoint lockdown policies
 
-This project emulates a realistic OT/IT convergence environment aligned with Purdue Model and ISA/IEC-62443 security principles.
+This project emulates a realistic convergence environment.
 
 🧭 Network Architecture
 Zone	Purpose	IP Range	Internet Access
@@ -24,7 +27,6 @@ Management	Out-of-band management for FTD/FMC	192.168.10.0/24	🔐 Admin-only
 
 Cisco FTD sits between Inside, DMZ, and Outside zones — enforcing NAT, Access Control Policies, and traffic inspection.
 
-Segmentation follows Purdue Level 3 (Inside) → Level 3.5 (DMZ) → Level 4 (Outside).
 
 ⚙️ Core Components
 🧱 Cisco FTD (Routed Mode)
@@ -39,7 +41,7 @@ g0/1 → Inside (192.168.100.1/24)
 
 g0/2 → DMZ (192.168.2.1/24)
 
-eth0 → Management (192.168.10.1/32)
+eth0 → Management (192.168.10.1/30)
 
 Access Control Policies:
 
@@ -55,7 +57,7 @@ Default → Deny all
 
 Primary DC (192.168.100.10): Hosts AD DS, DNS, and DHCP.
 
-Secondary DC (192.168.100.20): Replicates AD/DNS, configured as failover for DHCP.
+Secondary DC (192.168.100.20): Replicates AD/DNS, configured as a failover for DHCP.
 
 Domain: Shadow.Project
 
@@ -104,14 +106,6 @@ Deployment Model: ePO-managed centralized solution.
 Components:
 
 Trellix Agent
-
-ENS Modules: Threat Prevention, Web Control
-
-Rogue System Detection (RSD)
-
-Device Control (DLP)
-
-Solidcore (Application & Change Control)
 
 Integrated with SQL Server 2014 SP3 (TLS 1.2 compliant).
 
@@ -162,7 +156,7 @@ Demonstrate secure data flow and zone isolation.
 
 Apply ISA/IEC-62443 segmentation and least privilege design.
 
-Practice server hardening and endpoint lockdown in domain environment.
+Practice server hardening and endpoint lockdown in the domain environment.
 
 🧩 Lessons Learned
 
@@ -176,5 +170,15 @@ Implement redundant DHCP & DNS for resilience.
 
 Maintain offline activation methods for OT environments.
 
+
+What you can enhance and improve:
+-activate the IPS and make a realm in FTD and enable URL filtering
+
+-Apply more Trellix policies that are suitable for the environment
+
+-Configure a monitoring Service like whatusappGold or Wazuh or whaterver you like
+and more 
+
+Definitely, you can create a more improved and professional project
 Monitor synchronization (AD, WSUS, Acronis, Trellix) regularly for consistency.
 
